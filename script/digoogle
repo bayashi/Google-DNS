@@ -1,0 +1,12 @@
+#!perl
+use strict;
+use warnings;
+use Google::DNS;
+
+my $domain = shift @ARGV;
+
+my $resolver = Google::DNS->new;
+
+my $data = $resolver->data($domain);
+
+print $data;

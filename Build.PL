@@ -7,6 +7,7 @@ my $builder = Module::Build::Pluggable->new(
     module_name         => 'Google::DNS',
     license             => 'perl',
     dist_author         => 'Dai Okabayashi <bayashi@cpan.org>',
+    script_files        => [ 'script/digoogle' ],
     dist_version_from   => 'lib/Google/DNS.pm',
     add_to_cleanup      => [ 'Google-DNS-*' ],
     meta_merge     => {

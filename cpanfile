@@ -2,6 +2,10 @@ requires 'perl', '5.008005';
 requires 'strict';
 requires 'warnings';
 requires 'Carp';
+requires 'URI';
+requires 'Furl';
+requires 'JSON';
+requires 'Class::Accessor::Lite';
 
 on 'test' => sub {
     requires 'Test::More', '0.88';
