@@ -26,6 +26,16 @@ Then install it:
 
     % make install
 
+=head2 Downloading the standalone executable
+
+You can also copy the standalone executable to whatever location you'd like.
+
+    % cd ~/bin
+    % curl -LO http://bit.ly/digle
+    % chmod +x digle
+
+NOTE: edit shebang if you don't have /usr/bin/env
+
 
 =head1 DOCUMENTATION
 
