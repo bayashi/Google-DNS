@@ -102,7 +102,7 @@ NOTE that Google says Public DNS Query UI is Beta, so this module is Beta also.
 
 =head1 CLI
 
-see L<digoogle>
+see L<digle>
 
 
 =head1 REPOSITORY
@@ -125,7 +125,7 @@ Dai Okabayashi E<lt>bayashi@cpan.orgE<gt>
 
 =head1 SEE ALSO
 
-L<digoogle>
+L<digle>
 
 
 =head1 LICENSE
