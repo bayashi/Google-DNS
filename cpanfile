@@ -2,7 +2,7 @@ requires 'perl', '5.008005';
 requires 'strict';
 requires 'warnings';
 requires 'Carp';
-requires 'URI';
+requires 'URI::Escape';
 requires 'HTTP::Tiny';
 requires 'JSON::PP';
 requires 'Class::Accessor::Lite';

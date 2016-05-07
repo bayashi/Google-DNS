@@ -2,7 +2,7 @@ package Google::DNS;
 use strict;
 use warnings;
 use Carp qw/croak/;
-use URI;
+use URI::Escape qw/uri_escape/;
 use HTTP::Tiny;
 use JSON::PP qw/decode_json/;
 use Class::Accessor::Lite (
@@ -33,15 +33,16 @@ sub resolve {
 
     croak "require domain" unless $domain;
 
-    my $uri = URI->new($self->endpoint);
-    $uri->query_form(name => $domain);
+    my %query = (name => $domain);
     if ($self->cd) {
-        $uri->query_form(cd => $self->cd);
+        $query{cd} = $self->cd;
     }
     if ($self->type) {
-        $uri->query_form(type => $self->type);
+        $query{type} = $self->type;
     }
-    my $res = $self->ua->get($uri);
+    my $query_string = join('&', map { uri_escape($_).'='.uri_escape($query{$_}) } keys %query);
+
+    my $res = $self->ua->get($self->endpoint.'?'. $query_string);
     croak "wrong response:$res->{status} $res->{reason}" unless $res->{success};
     my $json = $res->{content};
     return $json if $raw;
