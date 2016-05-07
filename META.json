@@ -30,9 +30,10 @@
          "requires" : {
             "Carp" : "0",
             "Class::Accessor::Lite" : "0",
+            "Getopt::Long" : "2.42",
             "HTTP::Tiny" : "0",
             "JSON::PP" : "0",
-            "URI" : "0",
+            "URI::Escape" : "0",
             "perl" : "5.008005",
             "strict" : "0",
             "warnings" : "0"
@@ -47,7 +48,7 @@
    "provides" : {
       "Google::DNS" : {
          "file" : "lib/Google/DNS.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       }
    },
    "release_status" : "stable",
@@ -66,6 +67,6 @@
          "web" : "http://webchat.freenode.net/?channels=%23bayadev"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }

@@ -14,7 +14,7 @@ use Class::Accessor::Lite (
     /],
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my $class = shift;
@@ -110,7 +110,7 @@ see L<digle>
 
 =begin html
 
-<a href="http://travis-ci.org/bayashi/Google-DNS"><img src="https://secure.travis-ci.org/bayashi/Google-DNS.png"/></a> <a href="https://coveralls.io/r/bayashi/Google-DNS"><img src="https://coveralls.io/repos/bayashi/Google-DNS/badge.png?branch=master"/></a>
+<a href="http://travis-ci.org/bayashi/Google-DNS"><img src="https://secure.travis-ci.org/bayashi/Google-DNS.png?_t=1462630132"/></a> <a href="https://coveralls.io/r/bayashi/Google-DNS"><img src="https://coveralls.io/repos/bayashi/Google-DNS/badge.png?_t=1462630132&branch=master"/></a>
 
 =end html
 
