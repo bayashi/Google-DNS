@@ -30,8 +30,8 @@
          "requires" : {
             "Carp" : "0",
             "Class::Accessor::Lite" : "0",
-            "Furl" : "0",
-            "JSON" : "0",
+            "HTTP::Tiny" : "0",
+            "JSON::PP" : "0",
             "URI" : "0",
             "perl" : "5.008005",
             "strict" : "0",

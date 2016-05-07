@@ -3,8 +3,8 @@ use strict;
 use warnings;
 use Carp qw/croak/;
 use URI;
-use Furl;
-use JSON qw/decode_json/;
+use HTTP::Tiny;
+use JSON::PP qw/decode_json/;
 use Class::Accessor::Lite (
     rw => [qw/
         cd
@@ -24,7 +24,7 @@ sub new {
         cd       => ($args{cd} || $args{dnssec}) ? 1 : 0,
         type     => $args{type}     || '',
         endpoint => $args{endpoint} || 'https://dns.google.com/resolve',
-        ua       => $args{ua}       || Furl->new,
+        ua       => $args{ua}       || HTTP::Tiny->new,
     }, $class;
 }
 
@@ -42,8 +42,8 @@ sub resolve {
         $uri->query_form(type => $self->type);
     }
     my $res = $self->ua->get($uri);
-    croak "wrong response:". $res->status_line unless $res->is_success;
-    my $json = $res->content;
+    croak "wrong response:$res->{status} $res->{reason}" unless $res->{success};
+    my $json = $res->{content};
     return $json if $raw;
     return decode_json($json);
 }

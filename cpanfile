@@ -3,8 +3,8 @@ requires 'strict';
 requires 'warnings';
 requires 'Carp';
 requires 'URI';
-requires 'Furl';
-requires 'JSON';
+requires 'HTTP::Tiny';
+requires 'JSON::PP';
 requires 'Class::Accessor::Lite';
 
 on 'test' => sub {
