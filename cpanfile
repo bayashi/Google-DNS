@@ -6,6 +6,7 @@ requires 'URI::Escape';
 requires 'HTTP::Tiny';
 requires 'JSON::PP';
 requires 'Class::Accessor::Lite';
+requires 'Getopt::Long', '2.42';
 
 on 'test' => sub {
     requires 'Test::More', '0.88';

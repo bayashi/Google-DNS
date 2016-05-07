@@ -1,12 +1,36 @@
-#!perl
+#!/usr/bin/env perl
 use strict;
 use warnings;
 use Google::DNS;
+use Getopt::Long qw/GetOptionsFromArray/;
 
-my $domain = shift @ARGV;
+MAIN: {
+    my $config = {};
+    _merge_opt($config, @ARGV);
+    my $resolver = Google::DNS->new(
+        cd   => $config->{cd},
+        type => $config->{type},
+    );
+    my $result = $config->{data} ? $resolver->data($config->{domain}) : $resolver->resolve($config->{domain}, 'raw');
+    print "$result\n";
+}
 
-my $resolver = Google::DNS->new;
+sub _merge_opt {
+    my ($config, @argv) = @_;
 
-my $data = $resolver->data($domain);
+    GetOptionsFromArray(
+        \@argv,
+        'domain=s' => \$config->{domain},
+        'cd'       => \$config->{cd},
+        'type=s'   => \$config->{type},
+        'data'     => \$config->{data},
+        'v|version' => sub {
+            print "$0 $Google::DNS::VERSION\n";
+            exit 1;
+        },
+    );
 
-print $data;
+    $config->{domain} = shift @argv unless $config->{domain};
+
+    die "require domain\n" unless $config->{domain};
+}
